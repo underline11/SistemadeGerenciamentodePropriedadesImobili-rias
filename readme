@@ -1,0 +1,22 @@
+CREATE DATABASE SistemaDeGerenciamentoDePropriedadesImobiliárias;
+
+USE SistemaDeGerenciamentoDePropriedadesImobiliárias;
+
+-- Criação das tabelas
+CREATE TABLE propriedades (...);
+CREATE TABLE clientes (...);
+CREATE TABLE agentes (...);
+CREATE TABLE transacoes (...);
+
+INSERT INTO clientes (nome, telefone, email, interesse) VALUES (...);
+INSERT INTO propriedades (endereco, tipo, valor, status) VALUES (...);
+INSERT INTO transacoes (tipo_transacao, dados_cliente, agente, propriedade) VALUES (...);
+INSERT INTO agentes (nome, telefone, email) VALUES (...);
+
+-- Consultas
+SELECT * FROM propriedades;
+SELECT * FROM clientes WHERE interesse > 3000.00;
+
+-- Atualizações
+UPDATE clientes SET telefone = '9876-5432' WHERE nome = 'João Silva';
+UPDATE propriedades SET status = 'vendido' WHERE id = 1;
