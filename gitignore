@@ -1,0 +1,10 @@
+Sistema de Gerenciamento de Propriedades Imobiliárias
+Este projeto visa desenvolver um sistema de gerenciamento de propriedades imobiliárias, permitindo a gestão de propriedades, clientes, agentes e transações. O sistema é composto por um banco de dados relacional que organiza e manipula informações relacionadas a propriedades, clientes e agentes envolvidos em transações imobiliárias.
+
+Objetivos do Projeto:
+
+Gerenciamento de Propriedades: Armazenar e gerenciar informações sobre propriedades, incluindo endereço, tipo, valor e status.
+Gestão de Clientes: Manter dados dos clientes, como nome, telefone, e-mail e interesse em propriedades.
+Administração de Agentes: Controlar informações dos agentes imobiliários, incluindo nome, telefone e e-mail.
+Registro de Transações: Registrar as transações realizadas, com informações sobre tipo de transação, cliente, agente e propriedade envolvida.
+Consultas e Atualizações: Realizar consultas e atualizações no banco de dados para obter informações e ajustar registros conforme necessário.
