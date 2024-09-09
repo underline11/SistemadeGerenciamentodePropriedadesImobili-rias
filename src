@@ -1,0 +1,25 @@
+# Arquivos de configuração de IDE
+.idea/
+*.suo
+*.ntvs_analysis.dat
+*.ncb
+*.swp
+
+# Arquivos de banco de dados locais
+*.sql
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Dependências
+node_modules/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos gerados por sistemas operacionais
+.DS_Store
+Thumbs.db
