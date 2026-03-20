@@ -1,22 +1,39 @@
-CREATE DATABASE SistemaDeGerenciamentoDePropriedadesImobiliárias;
+CREATE DATABASE IF NOT EXISTS SistemaImobiliario;
+USE SistemaImobiliario;
 
-USE SistemaDeGerenciamentoDePropriedadesImobiliárias;
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20),
+    email VARCHAR(100),
+    orcamento_max DECIMAL(12, 2) -- Alterado para numérico para podermos filtrar
+);
 
--- Criação das tabelas
-CREATE TABLE propriedades (...);
-CREATE TABLE clientes (...);
-CREATE TABLE agentes (...);
-CREATE TABLE transacoes (...);
+CREATE TABLE propriedades (
+    id_propriedade INT AUTO_INCREMENT PRIMARY KEY,
+    endereco VARCHAR(255) NOT NULL,
+    tipo VARCHAR(50), -- Ex: Casa, Apartamento, Lote
+    valor DECIMAL(12, 2),
+    status VARCHAR(20) DEFAULT 'disponivel' -- disponivel, vendido, alugado
+);
 
-INSERT INTO clientes (nome, telefone, email, interesse) VALUES (...);
-INSERT INTO propriedades (endereco, tipo, valor, status) VALUES (...);
-INSERT INTO transacoes (tipo_transacao, dados_cliente, agente, propriedade) VALUES (...);
-INSERT INTO agentes (nome, telefone, email) VALUES (...);
+CREATE TABLE agentes (
+    id_agente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    comissao_percentual DECIMAL(5, 2)
+);
 
--- Consultas
-SELECT * FROM propriedades;
-SELECT * FROM clientes WHERE interesse > 3000.00;
+CREATE TABLE transacoes (
+    id_transacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    id_propriedade INT,
+    id_agente INT,
+    data_transacao DATE,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_propriedade) REFERENCES propriedades(id_propriedade),
+    FOREIGN KEY (id_agente) REFERENCES agentes(id_agente)
+);
 
--- Atualizações
-UPDATE clientes SET telefone = '9876-5432' WHERE nome = 'João Silva';
-UPDATE propriedades SET status = 'vendido' WHERE id = 1;
+-- Consultas corrigidas
+SELECT * FROM propriedades WHERE status = 'disponivel';
+SELECT * FROM clientes WHERE orcamento_max > 300000.00;
